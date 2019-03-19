@@ -10,9 +10,11 @@ namespace AmazonDataModel.Models
         private int MaintenanceID;
         private DateTime MaintenanceDate;
         private DateTime MaintenanceTime;
+        private HelpDesk helpDesk;
 
         public int MaintenanceID1 { get => MaintenanceID; set => MaintenanceID = value; }
         public DateTime MaintenanceDate1 { get => MaintenanceDate; set => MaintenanceDate = value; }
         public DateTime MaintenanceTime1 { get => MaintenanceTime; set => MaintenanceTime = value; }
+        public HelpDesk HelpDesk { get => helpDesk; set => helpDesk = value; }
     }
 }

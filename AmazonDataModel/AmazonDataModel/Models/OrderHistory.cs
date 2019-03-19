@@ -9,8 +9,12 @@ namespace AmazonDataModel.Models
     {
         private int OrderHistoryID;
         private double totalCost;
+        private Customer customer;
+        private OrderDetail orderDetail;
 
         public int OrderHistoryID1 { get => OrderHistoryID; set => OrderHistoryID = value; }
         public double TotalCost { get => totalCost; set => totalCost = value; }
+        public Customer Customer { get => customer; set => customer = value; }
+        public OrderDetail OrderDetail { get => orderDetail; set => orderDetail = value; }
     }
 }

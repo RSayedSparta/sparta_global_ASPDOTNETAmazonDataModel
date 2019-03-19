@@ -139,9 +139,11 @@
     </Compile>
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Basket.cs" />
     <Compile Include="Models\BillingAddress.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\HelpDesk.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\MaintenanceLog.cs" />
     <Compile Include="Models\Order.cs" />

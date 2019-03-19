@@ -9,8 +9,10 @@ namespace AmazonDataModel.Models
     {
         private int DiscountID;
         private string DiscountType;
+        private Product product;
 
         public int DiscountID1 { get => DiscountID; set => DiscountID = value; }
         public string DiscountType1 { get => DiscountType; set => DiscountType = value; }
+        public Product Product { get => product; set => product = value; }
     }
 }
