@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="AmazonDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="AmazonDataModelTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="AmazonDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="AmazonDataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="AmazonDataModel.Address" />
+          <EntitySet Name="Categories" EntityType="AmazonDataModel.Category" />
+          <EntitySet Name="Customers" EntityType="AmazonDataModel.Customer" />
+          <EntitySet Name="Orders" EntityType="AmazonDataModel.Order" />
+          <EntitySet Name="OrderDetails1" EntityType="AmazonDataModel.OrderDetail" />
+          <EntitySet Name="Payments" EntityType="AmazonDataModel.Payment" />
+          <EntitySet Name="Products" EntityType="AmazonDataModel.Product" />
+          <EntitySet Name="Shippers" EntityType="AmazonDataModel.Shipper" />
+          <EntitySet Name="Suppliers" EntityType="AmazonDataModel.Supplier" />
+          <AssociationSet Name="OrderDetailOrder" Association="AmazonDataModel.OrderDetailOrder">
+            <End Role="OrderDetail" EntitySet="OrderDetails1" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="OrderDetailProduct" Association="AmazonDataModel.OrderDetailProduct">
+            <End Role="OrderDetail" EntitySet="OrderDetails1" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerOrder" Association="AmazonDataModel.CustomerOrder">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="SupplierProduct" Association="AmazonDataModel.SupplierProduct">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="PaymentOrder" Association="AmazonDataModel.PaymentOrder">
+            <End Role="Payment" EntitySet="Payments" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="AddressSupplier" Association="AmazonDataModel.AddressSupplier">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Supplier" EntitySet="Suppliers" />
+          </AssociationSet>
+          <AssociationSet Name="AddressShipper" Association="AmazonDataModel.AddressShipper">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Shipper" EntitySet="Shippers" />
+          </AssociationSet>
+          <AssociationSet Name="AddressCustomer" Association="AmazonDataModel.AddressCustomer">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryProduct" Association="AmazonDataModel.CategoryProduct">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="ShipperOrderDetail" Association="AmazonDataModel.ShipperOrderDetail">
+            <End Role="Shipper" EntitySet="Shippers" />
+            <End Role="OrderDetail" EntitySet="OrderDetails1" />
+          </AssociationSet>
+          <EntitySet Name="Inventories" EntityType="AmazonDataModel.Inventory" />
+          <AssociationSet Name="ProductInventory" Association="AmazonDataModel.ProductInventory">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+          <EntitySet Name="Baskets" EntityType="AmazonDataModel.Basket" />
+          <AssociationSet Name="CustomerBasket" Association="AmazonDataModel.CustomerBasket">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Basket" EntitySet="Baskets" />
+          </AssociationSet>
+          <AssociationSet Name="BasketProduct" Association="AmazonDataModel.BasketProduct">
+            <End Role="Basket" EntitySet="Baskets" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="ProductSpecialOffer" Association="AmazonDataModel.ProductSpecialOffer">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="SpecialOffer" EntitySet="SpecialOffers" />
+          </AssociationSet>
+          <EntitySet Name="OrderHistories" EntityType="AmazonDataModel.OrderHistory" />
+          <AssociationSet Name="CustomerOrderHistory" Association="AmazonDataModel.CustomerOrderHistory">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="OrderHistory" EntitySet="OrderHistories" />
+          </AssociationSet>
+          <AssociationSet Name="OrderHistoryOrderDetail" Association="AmazonDataModel.OrderHistoryOrderDetail">
+            <End Role="OrderHistory" EntitySet="OrderHistories" />
+            <End Role="OrderDetail" EntitySet="OrderDetails1" />
+          </AssociationSet>
+          <EntitySet Name="BillingAddresses" EntityType="AmazonDataModel.BillingAddress" />
+          <AssociationSet Name="BillingAddressAddress" Association="AmazonDataModel.BillingAddressAddress">
+            <End Role="BillingAddress" EntitySet="BillingAddresses" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="BillingAddressCustomer" Association="AmazonDataModel.BillingAddressCustomer">
+            <End Role="BillingAddress" EntitySet="BillingAddresses" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <EntitySet Name="Admins" EntityType="AmazonDataModel.Admin" />
+          <EntitySet Name="MaintenanceLogs" EntityType="AmazonDataModel.MaintenanceLog" />
+          <AssociationSet Name="AdminMaintenanceLog" Association="AmazonDataModel.AdminMaintenanceLog">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="MaintenanceLog" EntitySet="MaintenanceLogs" />
+          </AssociationSet>
+          <EntitySet Name="SpecialOffers" EntityType="AmazonDataModel.SpecialOffer" />
+          <EntitySet Name="HelpDesks" EntityType="AmazonDataModel.HelpDesk" />
+          <AssociationSet Name="HelpDeskCustomer" Association="AmazonDataModel.HelpDeskCustomer">
+            <End Role="HelpDesk" EntitySet="HelpDesks" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="HelpDeskMaintenanceLog" Association="AmazonDataModel.HelpDeskMaintenanceLog">
+            <End Role="HelpDesk" EntitySet="HelpDesks" />
+            <End Role="MaintenanceLog" EntitySet="MaintenanceLogs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Suppliers" Relationship="AmazonDataModel.AddressSupplier" FromRole="Address" ToRole="Supplier" />
+          <NavigationProperty Name="Shippers" Relationship="AmazonDataModel.AddressShipper" FromRole="Address" ToRole="Shipper" />
+          <NavigationProperty Name="Customers" Relationship="AmazonDataModel.AddressCustomer" FromRole="Address" ToRole="Customer" />
+          <Property Name="HouseNumber" Type="String" Nullable="false" />
+          <Property Name="RoadName" Type="String" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" />
+          <Property Name="PostCode" Type="String" Nullable="false" />
+          <NavigationProperty Name="BillingAddress" Relationship="AmazonDataModel.BillingAddressAddress" FromRole="Address" ToRole="BillingAddress" />
+          </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="categoryID" />
+          </Key>
+          <Property Name="categoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryDescription" Type="String" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="AmazonDataModel.CategoryProduct" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Orders" Relationship="AmazonDataModel.CustomerOrder" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Address" Relationship="AmazonDataModel.AddressCustomer" FromRole="Customer" ToRole="Address" />
+          <NavigationProperty Name="Baskets" Relationship="AmazonDataModel.CustomerBasket" FromRole="Customer" ToRole="Basket" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="OrderHistories" Relationship="AmazonDataModel.CustomerOrderHistory" FromRole="Customer" ToRole="OrderHistory" />
+          <NavigationProperty Name="BillingAddress" Relationship="AmazonDataModel.BillingAddressCustomer" FromRole="Customer" ToRole="BillingAddress" />
+          <NavigationProperty Name="HelpDesk" Relationship="AmazonDataModel.HelpDeskCustomer" FromRole="Customer" ToRole="HelpDesk" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <NavigationProperty Name="OrderDetail" Relationship="AmazonDataModel.OrderDetailOrder" FromRole="Order" ToRole="OrderDetail" />
+          <NavigationProperty Name="Customer" Relationship="AmazonDataModel.CustomerOrder" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="Payment" Relationship="AmazonDataModel.PaymentOrder" FromRole="Order" ToRole="Payment" />
+          <Property Name="OrderID" Type="String" Nullable="false" />
+          <Property Name="OrderNumber" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailsID" />
+          </Key>
+          <Property Name="OrderDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Orders" Relationship="AmazonDataModel.OrderDetailOrder" FromRole="OrderDetail" ToRole="Order" />
+          <NavigationProperty Name="Products" Relationship="AmazonDataModel.OrderDetailProduct" FromRole="OrderDetail" ToRole="Product" />
+          <NavigationProperty Name="Shipper" Relationship="AmazonDataModel.ShipperOrderDetail" FromRole="OrderDetail" ToRole="Shipper" />
+          <Property Name="Quantity" Type="String" Nullable="false" />
+          <Property Name="Total" Type="String" Nullable="false" />
+          <NavigationProperty Name="OrderHistory" Relationship="AmazonDataModel.OrderHistoryOrderDetail" FromRole="OrderDetail" ToRole="OrderHistory" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="paymentID" />
+          </Key>
+          <Property Name="paymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Orders" Relationship="AmazonDataModel.PaymentOrder" FromRole="Payment" ToRole="Order" />
+          <Property Name="paymentType" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="OrderDetail" Relationship="AmazonDataModel.OrderDetailProduct" FromRole="Product" ToRole="OrderDetail" />
+          <NavigationProperty Name="Supplier" Relationship="AmazonDataModel.SupplierProduct" FromRole="Product" ToRole="Supplier" />
+          <NavigationProperty Name="Category" Relationship="AmazonDataModel.CategoryProduct" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Inventories" Relationship="AmazonDataModel.ProductInventory" FromRole="Product" ToRole="Inventory" />
+          <NavigationProperty Name="Basket" Relationship="AmazonDataModel.BasketProduct" FromRole="Product" ToRole="Basket" />
+          <Property Name="ProductName" Type="String" Nullable="false" />
+          <Property Name="ProductDescription" Type="String" Nullable="false" />
+          <Property Name="Picature" Type="String" Nullable="false" />
+          <Property Name="Price" Type="String" Nullable="false" />
+          <NavigationProperty Name="SpecialOffers" Relationship="AmazonDataModel.ProductSpecialOffer" FromRole="Product" ToRole="SpecialOffer" />
+        </EntityType>
+        <EntityType Name="Shipper">
+          <Key>
+            <PropertyRef Name="ShipperID" />
+          </Key>
+          <Property Name="ShipperID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Address" Relationship="AmazonDataModel.AddressShipper" FromRole="Shipper" ToRole="Address" />
+          <NavigationProperty Name="OrderDetails" Relationship="AmazonDataModel.ShipperOrderDetail" FromRole="Shipper" ToRole="OrderDetail" />
+          <Property Name="CompanyName" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Products" Relationship="AmazonDataModel.SupplierProduct" FromRole="Supplier" ToRole="Product" />
+          <NavigationProperty Name="Address" Relationship="AmazonDataModel.AddressSupplier" FromRole="Supplier" ToRole="Address" />
+          <Property Name="CompanyName" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="OrderDetailOrder">
+          <End Type="AmazonDataModel.OrderDetail" Role="OrderDetail" Multiplicity="1" />
+          <End Type="AmazonDataModel.Order" Role="Order" Multiplicity="1" />
+        </Association>
+        <Association Name="OrderDetailProduct">
+          <End Type="AmazonDataModel.OrderDetail" Role="OrderDetail" Multiplicity="1" />
+          <End Type="AmazonDataModel.Product" Role="Product" Multiplicity="*" />
+        </Association>
+        <Association Name="CustomerOrder">
+          <End Type="AmazonDataModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="AmazonDataModel.Order" Role="Order" Multiplicity="*" />
+        </Association>
+        <Association Name="SupplierProduct">
+          <End Type="AmazonDataModel.Supplier" Role="Supplier" Multiplicity="1" />
+          <End Type="AmazonDataModel.Product" Role="Product" Multiplicity="1" />
+        </Association>
+        <Association Name="PaymentOrder">
+          <End Type="AmazonDataModel.Payment" Role="Payment" Multiplicity="1" />
+          <End Type="AmazonDataModel.Order" Role="Order" Multiplicity="1" />
+        </Association>
+        <Association Name="AddressSupplier">
+          <End Type="AmazonDataModel.Address" Role="Address" Multiplicity="1" />
+          <End Type="AmazonDataModel.Supplier" Role="Supplier" Multiplicity="1" />
+        </Association>
+        <Association Name="AddressShipper">
+          <End Type="AmazonDataModel.Address" Role="Address" Multiplicity="1" />
+          <End Type="AmazonDataModel.Shipper" Role="Shipper" Multiplicity="1" />
+        </Association>
+        <Association Name="AddressCustomer">
+          <End Type="AmazonDataModel.Address" Role="Address" Multiplicity="*" />
+          <End Type="AmazonDataModel.Customer" Role="Customer" Multiplicity="1" />
+        </Association>
+        <Association Name="CategoryProduct">
+          <End Type="AmazonDataModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="AmazonDataModel.Product" Role="Product" Multiplicity="1" />
+        </Association>
+        <Association Name="ShipperOrderDetail">
+          <End Type="AmazonDataModel.Shipper" Role="Shipper" Multiplicity="1" />
+          <End Type="AmazonDataModel.OrderDetail" Role="OrderDetail" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="InventoryID" />
+          </Key>
+          <Property Name="InventoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Product" Relationship="AmazonDataModel.ProductInventory" FromRole="Inventory" ToRole="Product" />
+          <Property Name="Quantity" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="ProductInventory">
+          <End Type="AmazonDataModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="AmazonDataModel.Inventory" Role="Inventory" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Basket">
+          <Key>
+            <PropertyRef Name="BasketID" />
+          </Key>
+          <Property Name="BasketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Customer" Relationship="AmazonDataModel.CustomerBasket" FromRole="Basket" ToRole="Customer" />
+          <NavigationProperty Name="Products" Relationship="AmazonDataModel.BasketProduct" FromRole="Basket" ToRole="Product" />
+          <Property Name="BasketItems" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="CustomerBasket">
+          <End Type="AmazonDataModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="AmazonDataModel.Basket" Role="Basket" Multiplicity="1" />
+        </Association>
+        <Association Name="BasketProduct">
+          <End Type="AmazonDataModel.Basket" Role="Basket" Multiplicity="1" />
+          <End Type="AmazonDataModel.Product" Role="Product" Multiplicity="*" />
+        </Association>
+        <EntityType Name="SpecialOffer" >
+          <Property Name="DiscountID" Type="String" Nullable="false" />
+          <Property Name="DiscountType" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="AmazonDataModel.ProductSpecialOffer" FromRole="SpecialOffer" ToRole="Product" />
+        </EntityType>
+        <Association Name="ProductSpecialOffer">
+          <End Type="AmazonDataModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="AmazonDataModel.SpecialOffer" Role="SpecialOffer" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="OrderHistory">
+          <Key>
+            <PropertyRef Name="OrderHsitoryID" />
+          </Key>
+          <Property Name="OrderHsitoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Customer" Relationship="AmazonDataModel.CustomerOrderHistory" FromRole="OrderHistory" ToRole="Customer" />
+          <NavigationProperty Name="OrderDetails" Relationship="AmazonDataModel.OrderHistoryOrderDetail" FromRole="OrderHistory" ToRole="OrderDetail" />
+          <Property Name="TotalCosst" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="CustomerOrderHistory">
+          <End Type="AmazonDataModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="AmazonDataModel.OrderHistory" Role="OrderHistory" Multiplicity="*" />
+        </Association>
+        <Association Name="OrderHistoryOrderDetail">
+          <End Type="AmazonDataModel.OrderHistory" Role="OrderHistory" Multiplicity="1" />
+          <End Type="AmazonDataModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BillingAddress">
+          <Key>
+            <PropertyRef Name="BillingID" />
+          </Key>
+          <Property Name="BillingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Addresses" Relationship="AmazonDataModel.BillingAddressAddress" FromRole="BillingAddress" ToRole="Address" />
+          <NavigationProperty Name="Customers" Relationship="AmazonDataModel.BillingAddressCustomer" FromRole="BillingAddress" ToRole="Customer" />
+        </EntityType>
+        <Association Name="BillingAddressAddress">
+          <End Type="AmazonDataModel.BillingAddress" Role="BillingAddress" Multiplicity="1" />
+          <End Type="AmazonDataModel.Address" Role="Address" Multiplicity="*" />
+        </Association>
+        <Association Name="BillingAddressCustomer">
+          <End Type="AmazonDataModel.BillingAddress" Role="BillingAddress" Multiplicity="*" />
+          <End Type="AmazonDataModel.Customer" Role="Customer" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <NavigationProperty Name="MaintenanceLogs" Relationship="AmazonDataModel.AdminMaintenanceLog" FromRole="Admin" ToRole="MaintenanceLog" />
+        </EntityType>
+        <EntityType Name="MaintenanceLog" >
+          <Key>
+            <PropertyRef Name="MaintenanceID" />
+          </Key>
+          <NavigationProperty Name="Admin" Relationship="AmazonDataModel.AdminMaintenanceLog" FromRole="MaintenanceLog" ToRole="Admin" />
+          <Property Name="MaintenanceID" Type="String" Nullable="false" />
+          <Property Name="MaintenanceDate" Type="String" Nullable="false" />
+          <Property Name="MaintenanceTime" Type="String" Nullable="false" />
+          <NavigationProperty Name="HelpDesk" Relationship="AmazonDataModel.HelpDeskMaintenanceLog" FromRole="MaintenanceLog" ToRole="HelpDesk" />
+        </EntityType>
+        <Association Name="AdminMaintenanceLog">
+          <End Type="AmazonDataModel.Admin" Role="Admin" Multiplicity="1" />
+          <End Type="AmazonDataModel.MaintenanceLog" Role="MaintenanceLog" Multiplicity="*" />
+        </Association>
+        <EntityType Name="HelpDesk">
+          <Key>
+            <PropertyRef Name="HelpDeskID" />
+          </Key>
+          <Property Name="HelpDeskID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IssueMessage" Type="String" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="AmazonDataModel.HelpDeskCustomer" FromRole="HelpDesk" ToRole="Customer" />
+          <NavigationProperty Name="MaintenanceLogs" Relationship="AmazonDataModel.HelpDeskMaintenanceLog" FromRole="HelpDesk" ToRole="MaintenanceLog" />
+        </EntityType>
+        <Association Name="HelpDeskCustomer">
+          <End Type="AmazonDataModel.HelpDesk" Role="HelpDesk" Multiplicity="1" />
+          <End Type="AmazonDataModel.Customer" Role="Customer" Multiplicity="*" />
+        </Association>
+        <Association Name="HelpDeskMaintenanceLog">
+          <End Type="AmazonDataModel.HelpDesk" Role="HelpDesk" Multiplicity="1" />
+          <End Type="AmazonDataModel.MaintenanceLog" Role="MaintenanceLog" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="AmazonDataModel" />
+        <Alias Key="Target" Value="AmazonDataModel.Store" />
+        <EntityContainerMapping CdmEntityContainer="AmazonDataModelContainer" StorageEntityContainer="AmazonDataModelTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
