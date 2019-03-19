@@ -14,5 +14,13 @@ namespace AmazonDataModel.Models
         private string productDescription;
         private string picature;
         private double price;
+
+        public int ProductID { get => productID; set => productID = value; }
+        public Supplier Supplier { get => supplier; set => supplier = value; }
+        public Category Category { get => category; set => category = value; }
+        public string ProductName { get => productName; set => productName = value; }
+        public string ProductDescription { get => productDescription; set => productDescription = value; }
+        public string Picature { get => picature; set => picature = value; }
+        public double Price { get => price; set => price = value; }
     }
 }

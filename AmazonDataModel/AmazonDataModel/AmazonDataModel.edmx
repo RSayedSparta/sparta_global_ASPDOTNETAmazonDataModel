@@ -301,7 +301,7 @@
           <Property Name="OrderHsitoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Customer" Relationship="AmazonDataModel.CustomerOrderHistory" FromRole="OrderHistory" ToRole="Customer" />
           <NavigationProperty Name="OrderDetails" Relationship="AmazonDataModel.OrderHistoryOrderDetail" FromRole="OrderHistory" ToRole="OrderDetail" />
-          <Property Name="TotalCosst" Type="String" Nullable="false" />
+          <Property Name="TotalCost" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="CustomerOrderHistory">
           <End Type="AmazonDataModel.Customer" Role="Customer" Multiplicity="1" />

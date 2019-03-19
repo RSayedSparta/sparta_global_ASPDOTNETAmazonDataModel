@@ -9,5 +9,8 @@ namespace AmazonDataModel.Models
     {
         private int paymentID;
         private string paymentType;
+
+        public int PaymentID { get => paymentID; set => paymentID = value; }
+        public string PaymentType { get => paymentType; set => paymentType = value; }
     }
 }
